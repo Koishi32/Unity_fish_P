@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Projecto/scenesc/Main_menu.unity
+    guid: f3c7c165605af2b4e91acb574967bbab
+  - enabled: 1
+    path: Assets/Projecto/scenesc/nv2.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Projecto/scenesc/Menu carga.unity
+    guid: b96a45bf2edaf3840bc7db089845bb2d
   m_configObjects: {}
