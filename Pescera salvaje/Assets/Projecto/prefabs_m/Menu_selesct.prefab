@@ -84,7 +84,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1388019138297328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
@@ -182,6 +182,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1395710907947800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
@@ -251,7 +252,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1395710907947800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
@@ -275,7 +276,6 @@ GameObject:
   - component: {fileID: 81402077641479062}
   - component: {fileID: 114661100330301762}
   - component: {fileID: 2097719846}
-  - component: {fileID: 156596087}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -312,9 +312,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.9433962, g: 0.93004626, b: 0.93004626, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -383,16 +384,3 @@ Skybox:
   m_GameObject: {fileID: 1425473129691582}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 79666f50fe543c94a8227912432f8924, type: 2}
---- !u!114 &156596087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425473129691582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 247f6e2d81a6069479d6fc455582b135, type: 2}

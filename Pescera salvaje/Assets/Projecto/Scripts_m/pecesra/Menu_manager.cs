@@ -15,8 +15,8 @@ public class Menu_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        menu.SetActive(true);
+        GameObject menu_name = GameObject.Find("Menu_Select");
+        menu_name.SetActive(true);
         modify = true;
         creditosos.SetActive(false);
         afuera = true;
