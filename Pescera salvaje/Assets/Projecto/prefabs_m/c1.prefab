@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6571009182625556334}
   - component: {fileID: 5348750752263302166}
   - component: {fileID: 9054493797161041003}
+  - component: {fileID: 4306423276836946524}
+  - component: {fileID: 1591411125104152710}
   m_Layer: 0
   m_Name: 21487_Gorgonian_Soft_Coral_v1
   m_TagString: Untagged
@@ -55,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -66,6 +69,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -87,11 +91,37 @@ MeshCollider:
   m_GameObject: {fileID: 1592507261128875559}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 045df90ecbbb8d347a25b17847399c1d, type: 3}
+--- !u!65 &4306423276836946524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592507261128875559}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 56.70996, y: 10.285191, z: 46.884907}
+  m_Center: {x: -3.6181905, y: 2.9968066, z: 47.274544}
+--- !u!65 &1591411125104152710
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592507261128875559}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 23.854929, y: 21.056475, z: 20.785927}
+  m_Center: {x: 0.6386101, y: 1.4808213, z: 10.524381}
 --- !u!1 &6837576068722156357
 GameObject:
   m_ObjectHideFlags: 0

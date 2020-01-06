@@ -76,7 +76,7 @@ public class pezmove : MonoBehaviour
 
     public void cancel_predator() {
         if (can_Send_M) {
-            print("cancelado");
+            //print("cancelado");
             function_change.out_range();
             can_Send_M = false;
         }

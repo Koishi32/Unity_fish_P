@@ -55,11 +55,11 @@ public class mov2 : MonoBehaviour {
     }*/
     public void predator() {
         plus = aumento;
-        print("in");
+        //print("in");
     }
     public void out_range(){
         plus = 1;
-        print("out");
+       // print("out");
        }
   
 }

@@ -28,7 +28,7 @@ public class Sub_control : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(tuburon.position - transform.position), rotation_speed * Time.deltaTime);
         }
         else {
-            print("quieto");
+            //print("quieto");
             rgd_sub.velocity = Vector3.zero;
         }
     }
