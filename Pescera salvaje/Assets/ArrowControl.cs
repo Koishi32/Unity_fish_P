@@ -50,7 +50,7 @@ public class ArrowControl : MonoBehaviour
                 tMin = t;
                 minDist = dist;
             }
-            print(dist);
+            //print(dist);
         }
         if (minDist < distancia_deteccion) //Activa la flecha si el enemigo esta muy cerca
         {
