@@ -32,4 +32,9 @@ public class Sub_control : MonoBehaviour
             rgd_sub.velocity = Vector3.zero;
         }
     }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, Maxdist);
+    }
 }

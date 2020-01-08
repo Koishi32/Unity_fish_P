@@ -14,4 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Projecto/scenesc/Menu carga.unity
     guid: b96a45bf2edaf3840bc7db089845bb2d
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: fb7ebfe0fcaf92f4e81bfed2b0261988,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6a33d301d090a714cb1975f592fde928,
+      type: 2}
