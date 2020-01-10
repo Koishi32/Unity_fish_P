@@ -14,7 +14,7 @@ public class pezmove : MonoBehaviour
     Quaternion Newrotin;
     mov2 function_change;
     public string tag_control;
-    MeshCollider colision_m;
+    BoxCollider colision_m;
     bool actualizar_datos;
     private void Start()
     {
@@ -35,7 +35,7 @@ public class pezmove : MonoBehaviour
         else {
             function_change = GameObject.FindGameObjectWithTag(tag_control).GetComponentInChildren<mov2>();
             transform.position += new Vector3(aleatorio * 2, 0, 0);
-            colision_m = GetComponent<MeshCollider>();
+            colision_m = GetComponent<BoxCollider>();
             colision_m.enabled = false;
         }
 

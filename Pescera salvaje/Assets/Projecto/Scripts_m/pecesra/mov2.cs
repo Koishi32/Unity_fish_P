@@ -43,7 +43,7 @@ public class mov2 : MonoBehaviour {
         rgd.velocity = direccion.normalized * total;
         //transform.rotation = dir.transform.rotation;
         //SE mueve adelante genio
-        if (Mathf.Abs(transform.position.y) > limit_y || Mathf.Abs(transform.position.x) > limit_x || Mathf.Abs(transform.position.z) > limit_z) {
+        if ((transform.position.y) > limit_y || Mathf.Abs(transform.position.x) > limit_x || Mathf.Abs(transform.position.z) > limit_z) {
             transform.position = new Vector3(0, 0, 0);
         }
 //        movement_all();
