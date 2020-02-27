@@ -10,7 +10,7 @@ public class SpawnBubble : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ExecuteAfterTime(3));
+        StartCoroutine(ExecuteAfterTime(0.5f));
     }
     IEnumerator ExecuteAfterTime(float time)
     {

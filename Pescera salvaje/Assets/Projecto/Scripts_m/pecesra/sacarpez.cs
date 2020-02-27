@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class sacarpez : MonoBehaviour
 {
-    public Text puntasos;
+    public TextMeshProUGUI puntasos;
     public GameObject [] localidades;
     public GameObject pesacado;
     public int distacia_playerAbs;
