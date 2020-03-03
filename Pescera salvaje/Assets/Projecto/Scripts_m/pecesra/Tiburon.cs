@@ -5,17 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class Tiburon : MonoBehaviour {
     public  AudioSource nom;
+    public GameObject[] Objetos_Ausar; // Blood [0] activar lose [1] activar letras [2]
     public sacarpez llamarfuncionmuerta; //  calls for otrher fish to be produced
-    public GameObject sangron; // spwna blood
+   // public GameObject sangron; // spwna blood
     public float endtime; //longer means more nom
     Animator PerfectShark;
-    GameObject matar;
-    public GameObject activar;
+    bool activo_tir;
+    float tiempoeje;
+    public float TiempoPierde; // Modifcar en editor
+    public float Tiempopuntos_muestra;
+
     private void Start()
     {
         PerfectShark = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         print(PerfectShark.gameObject.name);
-        activar.SetActive(false);
+        Objetos_Ausar[1].SetActive(false);
+        Objetos_Ausar[2].SetActive(false);
+        activo_tir =true;
+        tiempoeje = 0;
+
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -48,17 +56,22 @@ public class Tiburon : MonoBehaviour {
                 print("mordio");
                 collision.gameObject.GetComponent<pezmove>().cancel_predator();
                 Destroy(collision.gameObject);
-                Instantiate(sangron, collision.transform.position, Quaternion.identity);
+                tiempoeje = Tiempopuntos_muestra;
+                StartCoroutine("esperar2");
+                Objetos_Ausar[2].SetActive(true); //Muestra puntos
+                Instantiate(Objetos_Ausar[0], collision.transform.position, Quaternion.identity); //Activa SANGRE
                 llamarfuncionmuerta.muriopez();
                 break;
             case "crap_point":
                 Destroy(collision.gameObject, 0.8f);
                 break;
             case "Enemy":
-                print("para");
+               // print("para");
                 this.GetComponent<mov2>().vel = 0;
-                activar.SetActive(true);
+                Objetos_Ausar[1].SetActive(true); //Pantalla perdio
                 //Time.timeScale = 0;
+                activo_tir = false;
+                tiempoeje = TiempoPierde;
                 StartCoroutine("esperar2");
                 break;
         }
@@ -69,8 +82,14 @@ public class Tiburon : MonoBehaviour {
     IEnumerator esperar2()
     {
         
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Main_menu");
+        yield return new WaitForSeconds(tiempoeje);
+        if (activo_tir)
+        {
+            Objetos_Ausar[2].SetActive(false); //Pantalla perdio
+
+        }
+        else { SceneManager.LoadScene("Main_menu"); }
+       
     }
 
 }
