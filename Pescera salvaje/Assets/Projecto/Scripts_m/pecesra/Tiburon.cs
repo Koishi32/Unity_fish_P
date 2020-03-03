@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Tiburon : MonoBehaviour {
     public  AudioSource nom;
-    public GameObject[] Objetos_Ausar; // Blood [0] activar lose [1] activar letras [2]
+    public Transform[] Objetos_Ausar; // Blood [0] activar lose [1] activar letras [2]
+    public float offset_z;
+
     public sacarpez llamarfuncionmuerta; //  calls for otrher fish to be produced
    // public GameObject sangron; // spwna blood
     public float endtime; //longer means more nom
@@ -17,10 +19,11 @@ public class Tiburon : MonoBehaviour {
 
     private void Start()
     {
+       
         PerfectShark = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         print(PerfectShark.gameObject.name);
-        Objetos_Ausar[1].SetActive(false);
-        Objetos_Ausar[2].SetActive(false);
+        Objetos_Ausar[1].position += Vector3.forward * offset_z; //Aparacesa atras
+        Objetos_Ausar[2].position +=  Vector3.forward * offset_z; //Aparacesa atras
         activo_tir =true;
         tiempoeje = 0;
 
@@ -58,7 +61,7 @@ public class Tiburon : MonoBehaviour {
                 Destroy(collision.gameObject);
                 tiempoeje = Tiempopuntos_muestra;
                 StartCoroutine("esperar2");
-                Objetos_Ausar[2].SetActive(true); //Muestra puntos
+                Objetos_Ausar[2].position -= Vector3.forward * offset_z; //Aparacesa atras
                 Instantiate(Objetos_Ausar[0], collision.transform.position, Quaternion.identity); //Activa SANGRE
                 llamarfuncionmuerta.muriopez();
                 break;
@@ -68,7 +71,7 @@ public class Tiburon : MonoBehaviour {
             case "Enemy":
                // print("para");
                 this.GetComponent<mov2>().vel = 0;
-                Objetos_Ausar[1].SetActive(true); //Pantalla perdio
+                Objetos_Ausar[1].position -= Vector3.forward * offset_z; //Pantalla perdio
                 //Time.timeScale = 0;
                 activo_tir = false;
                 tiempoeje = TiempoPierde;
@@ -85,7 +88,7 @@ public class Tiburon : MonoBehaviour {
         yield return new WaitForSeconds(tiempoeje);
         if (activo_tir)
         {
-            Objetos_Ausar[2].SetActive(false); //Pantalla perdio
+            Objetos_Ausar[2].position += Vector3.forward * offset_z; //Aparacesa atras
 
         }
         else { SceneManager.LoadScene("Main_menu"); }
