@@ -876,7 +876,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-643042
+  m_Name: pb_Mesh-9956
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2723,7 +2723,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-643004
+  m_Name: pb_Mesh-9900
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4181,7 +4181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097829, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: Limit_bonus
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9097829, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: default_socre
@@ -4190,6 +4190,11 @@ PrefabInstance:
     - target: {fileID: 9097829, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: damage_cost
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097829, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
+      propertyPath: Notes
+      value: El Limit Bonus  Mayor de 7 para que aparescan todos los mensajes, se
+        podria automatizar
       objectReference: {fileID: 0}
     - target: {fileID: 210555855, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_Name
@@ -4279,13 +4284,21 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1630384274, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 43.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630384274, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 340.42
+      objectReference: {fileID: 0}
     - target: {fileID: 1630384275, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1630384277, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_text
-      value: Crunch
+      value: Terror Marino
       objectReference: {fileID: 0}
     - target: {fileID: 1630384277, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_textInfo.materialCount
@@ -4297,7 +4310,7 @@ PrefabInstance:
       objectReference: {fileID: 1436418824}
     - target: {fileID: 1630384277, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 6
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1630384277, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_fontAsset
@@ -4318,7 +4331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1630384277, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1630384277, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_textInfo.lineCount
@@ -4351,6 +4364,10 @@ PrefabInstance:
     - target: {fileID: 1630384277, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_firstOverflowCharacterIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630384277, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1630384278, guid: 5e1fb27f953493048a2c82bf845e015f, type: 3}
       propertyPath: m_CullTransparentMesh

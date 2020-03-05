@@ -32,6 +32,7 @@ public class Tiburon : MonoBehaviour {
     float tiempo_destruc; //
     private void Start()
     {
+        numero_combos = 0;
         origina_font_size = texto_point_Multiplier.fontSize;
         texto_point_Multiplier.fontSize = 0.001f;// desaparece texto de bonus
         PerfectShark = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
@@ -77,16 +78,18 @@ public class Tiburon : MonoBehaviour {
                 StartCoroutine("esperar2");
                 Objetos_Ausar[1].position= pos_score_fini.position; // Aparece adelante
                 Objetos_Ausar[1].GetComponent<TextMeshProUGUI>().color = Color.blue;
-                Objetos_Ausar[1].GetComponent<TextMeshProUGUI>().text = "Crunch";
+                Objetos_Ausar[1].GetComponent<TextMeshProUGUI>().text = mensajes_positivo;
                 var particula = Instantiate(particula_sangre, collision.transform.position, Quaternion.identity); //Activa SANGRE
                 //Destroy(particula, tiempo_destruc);
                 activo = true;   //Mantiene cierto para combos
                 llamarfuncionmuerta.muriopez();
                 if ((PointsRaise < multiplicador * Limit_bonus) && activo) { // No mejora mas alla del limite y tiene que activar el combo
                     PointsRaise +=  multiplicador; // Por cada pez atrapado se le suma bonus
+                    numero_combos++;
                 }
                 temporizer = 0; // Reinicia el tiempo para combos 
                 Points += default_socre + PointsRaise; // se le suma
+                // Cambia el texto escrito en la UI 
                 
                 break;
             case "crap_point":
@@ -136,19 +139,61 @@ public class Tiburon : MonoBehaviour {
         else { SceneManager.LoadScene("Main_menu"); }
        
     }
+    int numero_combos;
     //Set de los scores
     public void Update()
     {
-        texto_point_Total.text = " " + Points;
-        texto_point_Multiplier.text = " " + (default_socre + PointsRaise);
         //esta_Perdiendo();
+        text_modifier();
+        check_points_text();
+        //Objetos_Ausar[1].GetComponent<TextMeshProUGUI>().text = " "+mensajes_positivo;
+        
+        texto_point_Multiplier.text = " " + (default_socre + PointsRaise);
+        texto_point_Total.text = " " + Points;
+
+
+    }
+    public string mensajes_positivo;
+    //string mensaje_nagativo;
+    void check_points_text() {
+        switch (numero_combos) {
+            case 0:
+                mensajes_positivo = " ";
+                break;
+            case 1:
+                mensajes_positivo = "Crunch";
+                break;
+            case 2:
+                mensajes_positivo = "Rapido";
+                break;
+            case 3:
+                mensajes_positivo = "Come Pez";
+                break;
+            case 4:
+                mensajes_positivo = "Voraz";
+                break;
+            case 5:
+                mensajes_positivo = "Salvaje";
+                break;
+            case 6:
+                mensajes_positivo = "Terror marino";
+                break;
+            case 7:
+                mensajes_positivo = "Megalodon";
+                break;
+
+
+        }
+    }
+    void text_modifier() {
         if (activo)
-         Combo_Fish();
-        if (Points < 0)
-        {texto_point_Total.color = Color.blue;}
-        else {
-            texto_point_Total.color = Color.red;}
-            
+            Combo_Fish();
+        if (Points > 0)
+        { texto_point_Total.color = Color.blue; }
+        else
+        {
+            texto_point_Total.color = Color.red;
+        }
     }
     //Seccion para la los combos pez
 
@@ -179,8 +224,11 @@ public class Tiburon : MonoBehaviour {
             texto_point_Multiplier.fontSize = 0.001f;
             temporizer = 0;
             PointsRaise = 0;
+            numero_combos = 0;
         } else{
             texto_point_Multiplier.fontSize = origina_font_size;
         }
     }
+    [TextArea]
+    public string Notes = "Mayor de 7 por fa";
 }
