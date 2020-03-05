@@ -6,7 +6,7 @@ public class Administra : MonoBehaviour
 {
    // public PostProcessingProfile arriba, abajo;
     //PostProcessingBehaviour ProcesPlayer;
-    public float maxY;
+    //public float maxY;
     Vector3 localizacion_Player;
     public GameObject playerson;
     // Start is called before the first frame update

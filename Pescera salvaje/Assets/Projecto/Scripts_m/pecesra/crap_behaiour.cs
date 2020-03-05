@@ -10,6 +10,8 @@ public class crap_behaiour : MonoBehaviour
     public float limit_x;
     public float limit_z;
     public Envoment_Mg bajar_basura;
+    [SerializeField]
+    float  limite_muerte_puntos;
    // Rigidbody myself;
     void Start()
     {
@@ -41,7 +43,10 @@ public class crap_behaiour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "MainCamera") {
-            other.GetComponentInParent<sacarpez>().pecesMuertos--;
+            other.GetComponentInParent<Tiburon>().negativeScore();
+            if (other.GetComponentInParent<Tiburon>().Points < limite_muerte_puntos) {
+                other.GetComponentInParent<Tiburon>().esta_Perdiendo(false); // Manda mensaje de perdidad pero no por ser pescado
+            }
             //GameObject.Find("Player").GetComponent<sacarpez>().pecesMuertos--;
             bajar_basura.actual--;
            Destroy(gameObject);

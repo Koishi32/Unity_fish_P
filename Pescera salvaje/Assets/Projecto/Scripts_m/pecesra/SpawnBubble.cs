@@ -21,6 +21,7 @@ public class SpawnBubble : MonoBehaviour
         {
             Instantiate(Burbujon, a.transform.position, Quaternion.Euler(-90f,0f,0f));
         }
+        
     }
 
 }
