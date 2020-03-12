@@ -7,10 +7,13 @@ public class ArrowControl : MonoBehaviour
 {
     List<Transform> Posiciones = new List<Transform>();
     public Transform Pos_tiburon; //ENTRE tiburon y submarinos
-    GameObject [] temp;
+    GameObject[] temp;
     public float distancia_deteccion;
     public GameObject flecha_activa;
     public float rotation_speed;
+    public Transform flecha;
+    [SerializeField]
+    float minDist;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,14 +36,14 @@ public class ArrowControl : MonoBehaviour
         check_distance();
     }
     void check_distance() {
-         Transform cercano = GetClosestEnemy_Index(Posiciones.ToArray());
+        Transform cercano = GetClosestEnemy_Index(Posiciones.ToArray());
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(cercano.position - transform.position), rotation_speed * Time.deltaTime);
         //flecha_activa.transform.LookAt(cercano,this.transform.up);
     }
     Transform GetClosestEnemy_Index(Transform[] enemies)
     {
         Transform tMin = null;
-        float minDist = Mathf.Infinity;
+         minDist = Mathf.Infinity;
         Vector3 currentPos = Pos_tiburon.position;
         foreach (Transform t in enemies)
         {
@@ -58,6 +61,11 @@ public class ArrowControl : MonoBehaviour
         }
         else { flecha_activa.SetActive(false); }
         return tMin;
-        
+
+    }
+    void tamano(){
+        float propro = minDist / distancia_deteccion;
+        propro = Mathf.Clamp(1 / propro,0, 1) ;
+        flecha.localScale = Vector3.one * propro;
     }
 }

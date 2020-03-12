@@ -10,10 +10,14 @@ public class Sub_control : MonoBehaviour
     public float rotation_speed;
     public float Maxdist;
     Rigidbody rgd_sub;
+    int aleatorio;
+    Quaternion Newrotin;
     // Start is called before the first frame update
     void Start()
     {
+        int aleatorio = Random.Range(8, 15);
         rgd_sub = this.GetComponent<Rigidbody>();
+        InvokeRepeating("cambiaDir", 2, aleatorio);
     }
 
     // Update is called once per frame
@@ -28,13 +32,24 @@ public class Sub_control : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(tuburon.position - transform.position), rotation_speed * Time.deltaTime);
         }
         else {
-            //print("quieto");
-            rgd_sub.velocity = Vector3.zero;
+            Patron_mov();
+            rgd_sub.velocity = transform.forward * spedd;
+
         }
     }
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Maxdist);
+    }
+    void Patron_mov() {
+        if (transform.rotation != Newrotin)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Newrotin, Time.deltaTime);
+        }
+    }
+    void cambiaDir()
+    {
+        Newrotin = Random.rotation;
     }
 }

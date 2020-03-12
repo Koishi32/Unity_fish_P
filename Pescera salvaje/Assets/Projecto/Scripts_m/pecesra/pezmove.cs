@@ -18,11 +18,11 @@ public class pezmove : MonoBehaviour
     bool actualizar_datos;
     private void Start()
     {
-        actualizar_datos = false;
+      actualizar_datos = false;
         Invoke("Start_chido", 3);
     }
     void Start_chido()
-    {
+    {  
         can_Send_M = false;
         int aleatorio = Random.Range(3, 12); //Pez cambiara de dir de 3 a 12 segs
         transform.rotation = Random.rotation;
@@ -47,7 +47,7 @@ public class pezmove : MonoBehaviour
     private float Update() // reset position , does rotation and moves fordward
     {
         if (!actualizar_datos) {
-            return 4.8f;
+            return 0; // Sale de la funcion si los datos no estan actualizados
         }
         transform.position += transform.forward * Time.deltaTime * vel;
         if (transform.rotation != Newrotin) {
