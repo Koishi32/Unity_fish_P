@@ -12,19 +12,23 @@ public class Sub_control : MonoBehaviour
     Rigidbody rgd_sub;
     int aleatorio;
     Quaternion Newrotin;
+    bool seguir=false;
     // Start is called before the first frame update
     void Start()
     {
-        int aleatorio = Random.Range(8, 15);
+        int aleatorio = Random.Range(4, 12);
+        int aleatorio2 = Random.Range(15, 30);
         rgd_sub = this.GetComponent<Rigidbody>();
         InvokeRepeating("cambiaDir", 2, aleatorio);
+        InvokeRepeating("localizando", 16, aleatorio2);
+        seguir = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        if (Vector3.Distance(transform.position, tuburon.position) < Maxdist)
+        if (Vector3.Distance(transform.position, tuburon.position) < Maxdist || seguir)
         {
             // transform.position += transform.forward * spedd * Time.deltaTime;
             rgd_sub.velocity = transform.forward * spedd;
@@ -52,4 +56,15 @@ public class Sub_control : MonoBehaviour
     {
         Newrotin = Random.rotation;
     }
+    void localizando() {
+        seguir = true;
+        StartCoroutine("esperar"); 
+    }
+
+    IEnumerator esperar()
+    {
+        yield return new WaitForSeconds(3f);
+        seguir = false;
+    }
+
 }

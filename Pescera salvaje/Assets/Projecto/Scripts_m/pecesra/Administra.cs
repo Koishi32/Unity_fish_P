@@ -2,41 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 public class Administra : MonoBehaviour
 {
-   // public PostProcessingProfile arriba, abajo;
-    //PostProcessingBehaviour ProcesPlayer;
-    //public float maxY;
-    Vector3 localizacion_Player;
-    public GameObject playerson;
+    public float max_score;
+    public Tiburon playerson;
+    public RectTransform aviso_win;
     // Start is called before the first frame update
     void Start()
     {
-       /* 
-         ProcesPlayer = GameObject.FindGameObjectWithTag("MainCamera").GetComponentInChildren<PostProcessingBehaviour>();
-        if (ProcesPlayer == null)
-        {
-            //print("No cacho");
-          //  Destroy(this);
-        }
-        else {
-            ProcesPlayer.profile = abajo;
-        }*/
+       // playerson = GameObject.FindGameObjectWithTag("Player").GetComponent<Tiburon>();
+        aviso_win.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /* localizacion_Player = GameObject.FindGameObjectWithTag("Player").transform.position;
-         if (localizacion_Player.y > maxY)
-         {
-             ProcesPlayer.profile = arriba;
-         }
-         else if (ProcesPlayer.profile != abajo) {
-             ProcesPlayer.profile = abajo;
-         }*/
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (SceneManager.GetActiveScene().name != "Main_menu") {
+            gameOver_return();
+        }
+        salir();
+       
+    }
+    void salir() {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             Application.Quit();
         }
+    }
+    public void gameOver_return() {
+        if (playerson.Points >= max_score) {
+            aviso_win.gameObject.SetActive(true);
+            StartCoroutine("esperar");
+           // Time.timeScale = 0;
+            
+
+        }
+    }
+    IEnumerator esperar()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(0);
     }
 }

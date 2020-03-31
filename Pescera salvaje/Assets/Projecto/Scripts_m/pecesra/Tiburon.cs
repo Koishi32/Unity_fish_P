@@ -146,6 +146,7 @@ public class Tiburon : MonoBehaviour {
         //esta_Perdiendo();
         text_modifier();
         check_points_text();
+
         //Objetos_Ausar[1].GetComponent<TextMeshProUGUI>().text = " "+mensajes_positivo;
         
         texto_point_Multiplier.text = " " + (default_socre + PointsRaise);

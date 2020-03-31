@@ -716,8 +716,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Creado en SODVI\nAssets: \nModels - Turbo Squid\nbubble particles - Unity
-    Assets PlayMint"
+  m_text: "Assets: \nModels - Turbo Squid\nbubble particles - Unity Assets PlayMint\nDesarrolladores:\nPrograming
+    & game design - Leyva Diaz Alejandro Ivan"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: f4e195ac1e204eff960149d1cb34e18c, type: 2}
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 25
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -783,15 +783,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -241.92178, y: 0.91804504, z: -0.17492305, w: 1.9051437}
+  m_margin: {x: -257.90836, y: -58.214897, z: -47.492455, w: -65.04666}
   m_textInfo:
     textComponent: {fileID: 408803157}
-    characterCount: 86
+    characterCount: 140
     spriteCount: 0
-    spaceCount: 14
-    wordCount: 14
+    spaceCount: 21
+    wordCount: 20
     linkCount: 0
-    lineCount: 4
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
