@@ -9,10 +9,12 @@ public class Sub_control : MonoBehaviour
     public float spedd;
     public float rotation_speed;
     public float Maxdist;
+    public float minDist;
     Rigidbody rgd_sub;
     int aleatorio;
     Quaternion Newrotin;
     bool seguir=false;
+    public AudioSource sonar;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,18 +24,25 @@ public class Sub_control : MonoBehaviour
         InvokeRepeating("cambiaDir", 2, aleatorio);
         InvokeRepeating("localizando", 16, aleatorio2);
         seguir = false;
+        minDist = Maxdist / 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (Vector3.Distance(transform.position, tuburon.position) < Maxdist || seguir)
+        float distnacia = Vector3.Distance(transform.position, tuburon.position);
+        if (distnacia < Maxdist || seguir)
         {
             // transform.position += transform.forward * spedd * Time.deltaTime;
             rgd_sub.velocity = transform.forward * spedd;
             //transform.LookAt(tuburon);
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(tuburon.position - transform.position), rotation_speed * Time.deltaTime);
+            if (sonar.isPlaying == false && distnacia < minDist)
+            { //cortamos el audio
+               // sonar.volume = (minDist/distnacia)/100;
+                //print(distnacia);
+                sonar.Play();
+            }
         }
         else {
             Patron_mov();
@@ -45,6 +54,8 @@ public class Sub_control : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Maxdist);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, minDist);
     }
     void Patron_mov() {
         if (transform.rotation != Newrotin)
@@ -63,7 +74,7 @@ public class Sub_control : MonoBehaviour
 
     IEnumerator esperar()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         seguir = false;
     }
 

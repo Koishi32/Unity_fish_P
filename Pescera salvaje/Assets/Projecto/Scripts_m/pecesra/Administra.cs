@@ -9,11 +9,13 @@ public class Administra : MonoBehaviour
     public float max_score;
     public Tiburon playerson;
     public RectTransform aviso_win;
+    public bool vitoria;
     // Start is called before the first frame update
     void Start()
     {
        // playerson = GameObject.FindGameObjectWithTag("Player").GetComponent<Tiburon>();
         aviso_win.gameObject.SetActive(false);
+        vitoria = false;
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class Administra : MonoBehaviour
     public void gameOver_return() {
         if (playerson.Points >= max_score) {
             aviso_win.gameObject.SetActive(true);
+            vitoria = true;
             StartCoroutine("esperar");
            // Time.timeScale = 0;
             

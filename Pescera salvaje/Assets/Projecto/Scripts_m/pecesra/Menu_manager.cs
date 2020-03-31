@@ -8,17 +8,18 @@ public class Menu_manager : MonoBehaviour
     bool modify;
     public Camera main_cameron;
     public GameObject creditosos;
-
+    public GameObject creditosos2;
     public GameObject menu;
     public GvrReticlePointer punteador;
     //private  texton;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject menu_name = GameObject.Find("Menu_Select");
+        GameObject menu_name = GameObject.Find("Menu_Select"); //Will not use anymore
         menu_name.SetActive(true);
         modify = true;
         creditosos.SetActive(false);
+        creditosos2.SetActive(false);
         afuera = true;
         continuar = false;
     }
@@ -64,6 +65,7 @@ public class Menu_manager : MonoBehaviour
         if (modify) {
             modify = false;
             creditosos.SetActive(true);
+            creditosos2.SetActive(true);
             print("credi");
             //changue canvas
             StartCoroutine("esperar");
@@ -118,6 +120,7 @@ public class Menu_manager : MonoBehaviour
     IEnumerator esperar() {
        yield return new WaitForSeconds(8f);
         creditosos.SetActive(false);
+        creditosos2.SetActive(false);
         modify = true;
     }
    

@@ -17,7 +17,7 @@ public class Tiburon : MonoBehaviour {
     RectTransform pos_score_fini;
     [SerializeField]
     RectTransform pos_perdida_fini;
-
+    public Administra victo;
     public sacarpez llamarfuncionmuerta; //  calls for otrher fish to be produced
    // public GameObject sangron; // spwna blood
 
@@ -66,9 +66,9 @@ public class Tiburon : MonoBehaviour {
             case "fish":
                 if (nom.isPlaying == false)
                 { //cortamos el audio
-                    nom.time = 0.6f;
+                    nom.time = 0.3f;
                     nom.Play();
-                    nom.SetScheduledEndTime(AudioSettings.dspTime + (endtime - 0.6f));
+                    nom.SetScheduledEndTime(AudioSettings.dspTime + (endtime - 0.3f));
                 }
                 PerfectShark.SetTrigger("mordida");
                 print("mordio");
@@ -97,7 +97,10 @@ public class Tiburon : MonoBehaviour {
                 break;
             case "Enemy":
                 // print("para");
-                esta_Perdiendo(true);
+                if (!victo.vitoria) {
+                    esta_Perdiendo(true);
+                }
+                
                 break;
         }
 
